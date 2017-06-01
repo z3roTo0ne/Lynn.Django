@@ -30,7 +30,7 @@ def log_func(func):
 
 @log_func
 def hello(name):
-    print "hello {}".format(name)
+    print("hello {}".format(name))
     logger.info('hello error')
 
 

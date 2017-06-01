@@ -8,7 +8,7 @@
 # subject = '邮件发送测试'
 # smtpserver = 'smtp.126.com'
 # username = 'chenlin_youdao'
-# password = 'chenlin<>?1989'
+# password = ''
 #
 # msg = MIMEText('邮件发送测试', 'plain', 'utf-8')
 # msg['Subject'] = Header(subject, 'utf-8')

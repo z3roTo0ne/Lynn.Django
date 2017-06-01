@@ -16,7 +16,7 @@ def parse_json(input_json):
                 for json_array in key_value:
                     parse_json(json_array)
             else:
-                print str(key) + " = " + str(key_value)
+                print(str(key) + " = " + str(key_value))
     elif isinstance(input_json, list):
         for input_json_array in input_json:
             parse_json(input_json_array)
