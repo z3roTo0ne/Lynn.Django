@@ -1,13 +1,13 @@
+# coding=utf-8
 import gevent.monkey
+import requests
 gevent.monkey.patch_socket()
-
 import gevent
-import urllib2
 import simplejson as json
 
 def fetch(pid):
-    response = urllib2.urlopen('http://date.jsontest.com/')
-    result = response.read()
+    response = requests.get('http://date.jsontest.com/')
+    result = response.content
     json_result = json.loads(result)
     datetime = json_result['time']
 
