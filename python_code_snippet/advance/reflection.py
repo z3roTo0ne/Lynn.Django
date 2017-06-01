@@ -10,12 +10,12 @@ import inspect
 
 # 下面这两行代码就是一个自省
 methodList = [attr for attr in dir(json) if callable(getattr(json, attr))]
-print methodList
+print(methodList)
 
 
 def foo():
     who = inspect.getframeinfo(inspect.currentframe().f_back)[2]
-    print "{} call me".format(who)
+    print("{} call me".format(who))
 
 
 def a():

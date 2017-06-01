@@ -1,4 +1,5 @@
 #! -*-coding:utf8 -*-
+
 """projectconfig URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,6 +16,7 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
+
 from django.conf.urls import url, include
 from django.contrib import admin
 from django_app.views import *
@@ -27,6 +29,7 @@ admin.autodiscover()
 # AdminSite attributes的这个功能非常好，可以直接替换掉很多模板
 # https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#overriding-admin-templates
 # 会自动在你project的templates下面去寻找名字正确的template
+
 admin.site.site_header = u"Django1.10 后台管理"
 # admin.site.login_template = "login.html"
 admin.site.site_title = "Django 后台管理"
@@ -41,7 +44,6 @@ router.register(prefix=r'api/groups', viewset=GroupViewSet)
 router.register(prefix=r'api/books', viewset=BookViewSet)
 router.register(prefix=r'api/authors', viewset=AuthorViewSet)
 router.register(prefix=r'api/publisher', viewset=PublisherViewSet)
-
 
 
 urlpatterns = [
