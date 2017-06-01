@@ -1,4 +1,4 @@
-#### 一个成熟的django系统开发和使用至少要考虑这些：
+#### django系统相关
 
 * API接口:  djangorestframework/django-tastypie, 以及各自的swagger（api开发）
 

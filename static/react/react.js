@@ -1406,7 +1406,7 @@ var DOMPropertyInjection = {
   HAS_OVERLOADED_BOOLEAN_VALUE: 0x40,
 
   /**
-   * Inject some specialized knowledge about the DOM. This takes a config object
+   * Inject some specialized knowledge about the DOM. This takes a projectconfig object
    * with the following properties:
    *
    * isCustomAttribute: function that given an attribute name will return true
@@ -1431,7 +1431,7 @@ var DOMPropertyInjection = {
    * DOMMutationMethods: Properties that require special mutation methods. If
    * `value` is undefined, the mutation method should unset the property.
    *
-   * @param {object} domPropertyConfig the config as described above.
+   * @param {object} domPropertyConfig the projectconfig as described above.
    */
   injectDOMPropertyConfig: function (domPropertyConfig) {
     var Injection = DOMPropertyInjection;
@@ -1446,7 +1446,7 @@ var DOMPropertyInjection = {
     }
 
     for (var propName in Properties) {
-      !!DOMProperty.properties.hasOwnProperty(propName) ? "development" !== 'production' ? invariant(false, 'injectDOMPropertyConfig(...): You\'re trying to inject DOM property ' + '\'%s\' which has already been injected. You may be accidentally ' + 'injecting the same DOM property config twice, or you may be ' + 'injecting two configs that have conflicting property names.', propName) : invariant(false) : undefined;
+      !!DOMProperty.properties.hasOwnProperty(propName) ? "development" !== 'production' ? invariant(false, 'injectDOMPropertyConfig(...): You\'re trying to inject DOM property ' + '\'%s\' which has already been injected. You may be accidentally ' + 'injecting the same DOM property projectconfig twice, or you may be ' + 'injecting two configs that have conflicting property names.', propName) : invariant(false) : undefined;
 
       var lowerCased = propName.toLowerCase();
       var propConfig = Properties[propName];
@@ -2612,7 +2612,7 @@ var EventPluginRegistry = {
   plugins: [],
 
   /**
-   * Mapping from event name to dispatch config
+   * Mapping from event name to dispatch projectconfig
    */
   eventNameDispatchConfigs: {},
 

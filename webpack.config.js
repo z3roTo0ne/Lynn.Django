@@ -24,7 +24,7 @@ module.exports = {
     },
     resolve: {
         //查找module的话从这里开始查找
-        //root: '/home/develop/code/django_pro/static/',
+        //root: '/home/develop/code/projectconfig/static/',
 
         //自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名
         extensions: ['', '.js', '.jsx'],
