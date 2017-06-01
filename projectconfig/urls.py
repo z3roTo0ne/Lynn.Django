@@ -2,7 +2,7 @@
 """projectconfig URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.9/topics/http/urls/
+    https://docs.djangoproject.com/en/1.10/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -25,7 +25,7 @@ from django.conf import settings
 admin.autodiscover()
 
 # AdminSite attributes的这个功能非常好，可以直接替换掉很多模板
-# https://docs.djangoproject.com/en/1.9/ref/contrib/admin/#overriding-admin-templates
+# https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#overriding-admin-templates
 # 会自动在你project的templates下面去寻找名字正确的template
 admin.site.site_header = u"Django1.10 后台管理"
 # admin.site.login_template = "login.html"
@@ -53,7 +53,7 @@ urlpatterns = [
 
 # django_app的url
 urlpatterns += [
-    url(r"^$", login_required(DisplayView.as_view(), login_url=''), name='index'),
+    url(r"^$", login_required(DisplayView.as_view(), login_url='/login/?next=/'), name='index'),
     url(r"^booklist/$", BookListView.as_view()),
     url(r"^duty/$", duty, name='duty'),
     url(r"^react/$", react, name='react'),
@@ -72,7 +72,7 @@ urlpatterns += [
 # REST framework的url
 urlpatterns += [
     url(r'^', include(router.urls)),
-    # 自动设置浏览器验证信息，不过django1.9以后已经不需要了， 可以不写下面这句
+    # 自动设置浏览器验证信息，不过django1.10以后已经不需要了， 可以不写下面这句
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # url(r'^docs/', include('rest_framework_swagger.urls')),
 ]

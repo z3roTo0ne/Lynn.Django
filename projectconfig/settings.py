@@ -11,7 +11,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 import os
-import sys
 import mimetypes
 
 
@@ -214,7 +213,7 @@ SITE_URL = '/'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR, PROJECT_MODULE_NAME = os.path.split(PROJECT_ROOT)
 
-
+# 开启调试面板
 if DEBUG:
     DEBUG_TOOLBAR_PATCH_SETTINGS = False
     DEBUG_TOOLBAR_PANELS = [

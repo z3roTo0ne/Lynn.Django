@@ -36,4 +36,4 @@ class DateTimeOpt(object):
 
 if __name__ == '__main__':
     d = DateTimeOpt()
-    print d.to_timestamp(d.format_date())
+    print(d.to_timestamp(d.format_date()))

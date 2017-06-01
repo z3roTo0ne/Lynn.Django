@@ -150,7 +150,7 @@ def login(request):
     password =  request.POST.get("password", None)
     remember = request.POST.get("remember-me", None)
     prefix = "fuck you mom".join(str(username))
-    token = base64.encodestring(prefix)
+    # token = base64.b64encode(prefix)
 
     if request.POST and username and password:
         user = auth.authenticate(username=username, password=password)
@@ -160,7 +160,7 @@ def login(request):
             if remember == "on":
                 response.set_cookie('username', username)
                 response.set_cookie('password', password)
-                response.set_cookie('token', token)
+                # response.set_cookie('token', token)
             messages.success(request, u"登录成功")
             return response
         else:
