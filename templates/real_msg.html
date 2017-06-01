@@ -1,0 +1,80 @@
+{% extends "base_page.html" %}
+{% load customfilter %}
+
+{% block messages %}
+    <li role="presentation" class="dropdown">
+        <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-envelope-o"></i>
+            <span class="badge bg-green" id="{{ user.username }}-msg-count">0</span>
+        </a>
+        <ul id="{{ user.username }}-msg-detail" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+        </ul>
+    </li>
+{% endblock %}
+
+{% block main_content %}
+    <div id="example">
+    </div>
+    <div>
+        <h3> SSE实时消息推送 </h3>
+        <div id="result">{{ user.username }}</div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        var source = new EventSource("/event_source/");
+        source.onmessage = function(event) {
+            var data = JSON.parse(event.data);
+            var msg_count = data.length;
+            var backend_msg = [];
+            $.each(data, function (k,v) {
+                backend_msg.push(v['fields']['message'].trim());
+            });
+
+            $.each(data, function (k,v) {
+                var dom_msg_count =  $("#{{ user.username }}-msg-count");
+                var current_msg_count = parseInt(dom_msg_count.text().trim());
+                var message = v['fields']['message'].trim();
+                var read = v['fields']['read'];
+                var add_time = v['fields']['add_time'];
+
+
+                //对具体的消息内容做处理
+                var dom_msg_detail = $("ul#{{ user.username }}-msg-detail");
+                if (msg_count > 0 ) { //只有确保一定有消息过来的时候才对前台页面做处理
+                    dom_msg_count.replaceWith("<span class='badge bg-green' id='{{ user.username }}-msg-count'>"+msg_count+"</span>");
+                    var append_msg = "<li>\
+                                        <a>\
+                                        <span class='image'><img src='{{ STATIC_URL }}gentelella/images/img.jpg' alt='Profile Image' /></span>\
+                                        <span><span>{{ user.username }}</span><span class='time' id='add-time'>"+add_time+"</span></span>\
+                                        <span class='message' id='msg-content'>"+message+"</span>\
+                                        </a>\
+                                        </li>";
+                    if( dom_msg_detail.children("li").length == 0 ){ //如果当前没有任何消息显示，就直接追加
+                        dom_msg_detail.append(append_msg);
+                    }else{
+                        var current_msg_content = []; //存储页面已经有了的消息,要先比对一下
+                        dom_msg_detail.children("li").each(function () {
+                            var msg = $(this).children("a").children("span#msg-content").text().trim();
+                            current_msg_content.push(msg)
+                        });
+                        if($.inArray(message, current_msg_content) < 0){ //如果后台的message不在当前页面的显示里面
+                            dom_msg_detail.append(append_msg);
+                        }
+                    }
+                }
+
+                //反向移除操作
+                if (msg_count > 0 && msg_count < current_msg_count){
+                    dom_msg_detail.children("li").each(function () {
+                        var msg = $(this).children("a").children("span#msg-content").text().trim();
+                        if($.inArray(msg, backend_msg) < 0 ){
+                            $(this).remove();
+                        }
+                    });
+                }
+            })
+        };
+    </script>
+{% endblock %}

@@ -1,0 +1,117 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>WebSockets 调试页面</title>
+    <meta charset="utf-8" />
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        $(document).ready(function () {
+            var $ws;
+            $("#connect-button").click(function(evt) {
+                evt.preventDefault();
+
+                var $host = $("#inputHost").val();
+                var $port = $("#inputPort").val();
+                var $uri = $("#inputUri").val();
+
+                var $ws_server = "ws://" + $host + ":" + $port + $uri;
+
+                // 创建web socket实例
+                var ws = new WebSocket($ws_server);
+
+
+                $("#disconnect-button").on('click', function(){
+                    ws.close();
+                    $("#inputHost").css("background", "red");
+                    $("#inputPort").css("background", "red");
+                    $("#inputUri").css("background",  "red");
+                    $("#notice-info").replaceWith("<p id='notice-info' style='color:red'><b>已断开连接！</b> </p>");
+                });
+
+                // Handle incoming web socket message callback
+                ws.onmessage = function(evt) {
+                    console.log(evt.data);
+                    $("#messages").append("接收消息："+evt.data+"</br>");
+                };
+
+                // Close Web socket callback
+                ws.onclose = function(evt) {
+                    $("#inputHost").css("background", "red");
+                    $("#inputPort").css("background", "red");
+                    $("#inputUri").css("background",  "red");
+                    $("#notice-info").replaceWith("<p id='notice-info' style='color:red'><b>已断开连接！</b> </p>");
+                };
+
+                // Open Web socket callback
+                ws.onopen = function(evt) {
+                    $("#inputHost").css("background", "green");
+                    $("#inputPort").css("background", "green");
+                    $("#inputUri").css("background", "green");
+                    $("#notice-info").replaceWith("<p id='notice-info' style='color:green'><b>已连接至:"+$ws_server+"</b> </p>");
+                    $("#messages").empty();
+                };
+
+                // Send web socket message function
+                $("#send-button").on('click', (function(evt) {
+                    ws.send($("#message-send").val());
+                }));
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-xs-12">
+            <h3>Websockets 测试页面</h3>
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="inputHost"> Host </label>
+                    <div class="controls">
+                        <input id="inputHost" type="text" value="192.168.5.133"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPort"> Port </label>
+                    <div class="controls">
+                        <input id="inputPort" type="text" value="1234"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputUri"> Uri </label>
+                    <div class="controls">
+                        <input id="inputUri" type="text" value="/ws"/>
+                    </div>
+                </div>
+                <hr>
+                <div class="control-group">
+                    <button class="btn btn-info" type="button" id="connect-button">连接</button>
+                    <button class="btn btn-danger" type="button" id="disconnect-button">断开</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-xs-12">
+            <p id="notice-info"></p>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="control-group">
+                <label class="control-label" for="message-send"> Message </label>
+                <div class="controls">
+                    <input id="message-send" type="text" value="hello, fuck you!"/>
+                    <button class="btn btn-primary btn-sm" type="button" id="send-button">发送</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <p id="messages"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

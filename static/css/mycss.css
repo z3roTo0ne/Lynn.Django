@@ -1,0 +1,27 @@
+body {
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+
+
+.the-thing {
+    margin-top: 2em;
+    font-size: 4em;
+}
+
+.thing-enter {
+  opacity: 0.01;
+  transition: opacity 3s ease-in;
+}
+
+.thing-enter.thing-enter-active {
+  opacity: 3;
+}
+
+.thing-leave {
+  opacity: 3;
+  transition: opacity 3s ease-in;
+}
+
+.thing-leave.thing-leave-active {
+  opacity: 0.08;
+}

@@ -1,0 +1,120 @@
+{% extends "base_page.html" %}
+
+{% block main_content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2> 值班日历 <small>运维值班日历</small></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div id='calendar'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="duty" class="col-md-12">
+        </div>
+    </div>
+
+
+    <!--周末和周六颜色不一样-->
+    <style type="text/css">
+        .fc-sat { background-color:	#FFFFE0}
+        .fc-sun { background-color:	#FFFFE0}
+    </style>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ STATIC_URL }}dist/common.js" ></script>
+    {#    type="text/babel" 这里去了之后就不会出现>100kb的错误了#}
+    {#    <script src="{{ STATIC_URL }}js/hello.bundle.js" ></script>#}
+    {#    <script src="{{ STATIC_URL }}js/duty.bundle.js" ></script>#}
+
+    <script>
+        $(window).load(function() {
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+            var started;
+            var categoryClass;
+            var calendar = $('#calendar').fullCalendar({
+                header: {
+                    left: 'prevYear,prev,next,nextYear today',
+                    center: 'title',
+                    right: 'month'
+                },
+                buttonText: {
+                    today: '今天',
+                    month: '月视图'
+                    //week: '周视图',
+                    //day: '日视图'
+                },
+                monthNames: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+                dayNames: ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+                titleFormat: {
+                    month: 'YYYY年 MMMM月'
+                },
+                columnFormat: {
+                    month: 'dddd',
+                    week: 'dddd M-d',
+                    day: 'dddd M-d'
+                },
+                selectable: true,
+                selectHelper: true,
+                editable: true,
+                // eventColor: 'red',
+                // eventBackgroundColor:
+                // eventTextColor:
+                // eventBorderColor:
+                events: function(start, end, timezone, callback){
+                    $.ajax({
+                        url: "http://esb.service.digi-sky.com/esb/duty/100/",
+                        type: "GET",
+                        dataType: "JSON",
+                        success: function(doc){
+                            var events = [];
+                            $(doc).each(function(k,v) {
+                                events.push({
+                                    title: v['duty_name'],
+                                    start: v['date'],
+                                    end: v['date'],
+                                    description: "",
+                                    email: v['email']
+                                });
+                            });
+                            callback(events);
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown){
+                            console.log(XMLHttpRequest, textStatus, errorThrown)
+                        }
+                    });
+                },
+                eventRender: function(event, element, view) {
+                    var $profile = "";
+                    if (event.email){
+                        var $en_name = event.email.split("@")[0];
+                        $en_name == "zhouxingjie" || $en_name == "chenxin" ?  $profile = "duty.jpg" : $profile = $en_name + ".jpg";
+                        var $render_content="\
+                            <div class='label label-info'>"+event.title+"</div>\
+                            <div class='profile_pic'>\
+                                <img src='/static/img/"+$profile+"'  class='img-circle profile_img'>\
+                            </div>";
+                        return $($render_content);
+                    }
+                    else{
+                        var $render_content_no_duty="\
+                            <div class='label label-info'>"+event.title+"</div>\
+                            <div class='profile_pic'>\
+                                <img src='/static/img/duty.jpg'  class='img-circle profile_img'>\
+                            </div>";
+                        return $($render_content_no_duty);
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}

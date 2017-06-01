@@ -1,0 +1,14 @@
+- hosts: "{{host}}"
+  vars:
+    http_port: 80
+  gather_facts: False
+  strategy: free
+  tasks:
+  - name: touch test file to remote host
+    file: state=touch path=/tmp/test20160215.txt mode="u=rw,g=r,o=r"
+
+  - name: start http server
+    service: name=httpd state=started enabled=yes
+
+  - name: test action
+    action: shell echo hi

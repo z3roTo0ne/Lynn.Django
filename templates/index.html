@@ -1,0 +1,48 @@
+{% extends "base_page.html" %}
+{% load customfilter %}
+
+{% block main_content %}
+    <div id="example">
+    </div>
+    <div>
+        <h3> Django Test </h3>
+        <div class="alert alert-success alert-dismissible fade in" role="alert" id="notify">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+            </button>
+            <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+        </div>
+
+        <hr>
+        <button id="toggle-alert" class="btn btn-primary btn-sm">切换</button>
+        {#    {{ mybook }} {{ time }}#}
+        {{ mybook | jsonify }}
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+    $("#toggle-alert").on("click", function () {
+        $("#notify").removeClass("in")
+    })
+    </script>
+
+
+
+
+
+    <script src="{{ STATIC_URL }}dist/common.js" ></script>
+    {#    type="text/babel" 这里去了之后就不会出现>100kb的错误了#}
+    {#    <script src="{{ STATIC_URL }}dist/hello.bundle.js" ></script>#}
+    {#    <script src="{{ STATIC_URL }}dist/test2.bundle.js" ></script>#}
+    {#    <script src="{{ STATIC_URL }}dist/grid.bundle.js" ></script>#}
+
+    {#    <script>#}
+    {#        $.ajax({#}
+    {#            url: "http://192.168.102.128:8000/api/books/",#}
+    {#            method: "GET",#}
+    {#            success: function(response){#}
+    {#                console.log(response)#}
+    {#            }#}
+    {#        })#}
+    {#    </script>#}
+{% endblock %}

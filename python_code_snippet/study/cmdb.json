@@ -1,0 +1,757 @@
+{
+    "cmdb.1.AccountSrv.1": {
+        "hosts": [
+            "192.168.2.28"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.AccountSrv.1"
+        }
+    },
+    "cmdb.1.Proxy.1": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.Proxy.1"
+        }
+    },
+    "cmdb.1.World.4": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.World.4"
+        }
+    },
+    "_meta": {
+        "hostvars": {
+            "192.168.2.34": {
+                "other_ip": [],
+                "app_meta": {},
+                "plat_ab": "lan",
+                "ip": "192.168.2.34",
+                "app": [],
+                "region_ab": "F4",
+                "ssh_ip": "192.168.2.34",
+                "cabinet_name": "vm"
+            },
+            "192.168.2.28": {
+                "other_ip": [],
+                "app_meta": {
+                    "cmdb.1.AccountSrv.1": {
+                        "process": {},
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 3069
+                    },
+                    "cmdb.5.Config.1": {
+                        "process": {
+                            "config": {
+                                "attribute": {},
+                                "config_file": [],
+                                "id": 146,
+                                "work_dir": ""
+                            },
+                            "game_proc": {
+                                "attribute": {},
+                                "config_file": [],
+                                "id": 7,
+                                "work_dir": "/home/eric/upload/"
+                            },
+                            "devops": {
+                                "attribute": {
+                                    "priv_passwd": "121ab07bf77f",
+                                    "priv_cli": "127.0.0.1,locahost",
+                                    "priv_user": "df235235"
+                                },
+                                "config_file": [],
+                                "id": 144,
+                                "work_dir": ""
+                            },
+                            "normal": {
+                                "attribute": {
+                                    "priv_passwd": "969efe253ead",
+                                    "priv_cli": "127.0.0.1,localhost,192.168.66.87",
+                                    "priv_user": "664e6006"
+                                },
+                                "config_file": [],
+                                "id": 147,
+                                "work_dir": ""
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2819
+                    },
+                    "cmdb.1.Config.1": {
+                        "process": {
+                            "config": {
+                                "attribute": {},
+                                "config_file": [],
+                                "id": 148,
+                                "work_dir": ""
+                            },
+                            "normal": {
+                                "attribute": {
+                                    "priv_cli": "127.0.0.1,localhost"
+                                },
+                                "config_file": [],
+                                "id": 153,
+                                "work_dir": ""
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 3218
+                    },
+                    "cmdb.4.source.1": {
+                        "process": {
+                            "22020": {
+                                "attribute": {},
+                                "config_file": [],
+                                "id": 150,
+                                "work_dir": ""
+                            },
+                            "iiiii": {
+                                "attribute": {},
+                                "config_file": [],
+                                "id": 151,
+                                "work_dir": ""
+                            },
+                            "normal": {
+                                "attribute": {},
+                                "config_file": [],
+                                "id": 149,
+                                "work_dir": ""
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 3219
+                    }
+                },
+                "plat_ab": "lan",
+                "ip": "192.168.2.28",
+                "app": [
+                    "cmdb.5.Config.1",
+                    "cmdb.1.AccountSrv.1",
+                    "cmdb.1.Config.1",
+                    "cmdb.4.source.1"
+                ],
+                "region_ab": "F4",
+                "ssh_ip": "192.168.2.28",
+                "cabinet_name": "vm"
+            },
+            "192.168.2.169": {
+                "other_ip": [],
+                "app_meta": {
+                    "cmdb.1.Proxy.1": {
+                        "process": {
+                            "proxy": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.1.Proxy.1",
+                                    "aaa": "aaa",
+                                    "ccc": "ccc",
+                                    "bbbbb": "bbbb"
+                                },
+                                "config_file": [
+                                    {
+                                        "path": "/tmp/test.txt",
+                                        "id": 4
+                                    }
+                                ],
+                                "id": 5,
+                                "work_dir": ""
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2685
+                    },
+                    "cmdb.1.World.4": {
+                        "process": {
+                            "world": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.1.World.4"
+                                },
+                                "config_file": [],
+                                "id": 62,
+                                "work_dir": "/data/world"
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2957
+                    },
+                    "cmdb.2.PlatSrv.1": {
+                        "process": {
+                            "dagent": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.2.PlatSrv.1",
+                                    "server_path": "/data/mgame/server/gameserver"
+                                },
+                                "config_file": [],
+                                "id": 4,
+                                "work_dir": ""
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2497
+                    },
+                    "cmdb.4.World.1": {
+                        "process": {
+                            "world": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.4.World.1"
+                                },
+                                "config_file": [],
+                                "id": 58,
+                                "work_dir": "/data/world"
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2686
+                    },
+                    "cmdb.6.Game.1": {
+                        "process": {
+                            "game": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.6.Game.1",
+                                    "db_host": "127.0.0.1",
+                                    "server_name": "英雄无敌",
+                                    "db_port": "3306"
+                                },
+                                "config_file": [
+                                    {
+                                        "path": "config/game.ini",
+                                        "id": 7
+                                    }
+                                ],
+                                "id": 8,
+                                "work_dir": ""
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2820
+                    },
+                    "cmdb.1.PlatSrv.1": {
+                        "process": {},
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2258
+                    },
+                    "cmdb.8.Game.1": {
+                        "process": {
+                            "game": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.8.Game.1",
+                                    "db_host": "127.0.0.1",
+                                    "server_name": "使命召唤",
+                                    "db_port": "3306"
+                                },
+                                "config_file": [
+                                    {
+                                        "path": "config/game.ini",
+                                        "id": 9
+                                    }
+                                ],
+                                "id": 10,
+                                "work_dir": ""
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2822
+                    },
+                    "cmdb.1.World.7": {
+                        "process": {},
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2960
+                    },
+                    "cmdb.1.World.6": {
+                        "process": {
+                            "world": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.1.World.6"
+                                },
+                                "config_file": [],
+                                "id": 64,
+                                "work_dir": "/data/world"
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2959
+                    },
+                    "cmdb.1.World.5": {
+                        "process": {
+                            "world": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.1.World.5"
+                                },
+                                "config_file": [],
+                                "id": 63,
+                                "work_dir": "/data/world"
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2958
+                    },
+                    "cmdb.7.Game.1": {
+                        "process": {
+                            "game": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.7.Game.1",
+                                    "db_host": "127.0.0.1",
+                                    "server_name": "魔兽争霸",
+                                    "db_port": "3306"
+                                },
+                                "config_file": [
+                                    {
+                                        "path": "config/game.ini",
+                                        "id": 8
+                                    }
+                                ],
+                                "id": 9,
+                                "work_dir": ""
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2821
+                    },
+                    "cmdb.1.World.3": {
+                        "process": {
+                            "world": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.1.World.3"
+                                },
+                                "config_file": [],
+                                "id": 61,
+                                "work_dir": "/data/world"
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2956
+                    },
+                    "cmdb.1.World.2": {
+                        "process": {
+                            "world": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.1.World.2"
+                                },
+                                "config_file": [],
+                                "id": 60,
+                                "work_dir": "/data/world"
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2955
+                    },
+                    "cmdb.1.World.1": {
+                        "process": {
+                            "world": {
+                                "attribute": {
+                                    "ansible_expr": "cmdb.1.World.1"
+                                },
+                                "config_file": [],
+                                "id": 59,
+                                "work_dir": "/data/world"
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2952
+                    }
+                },
+                "plat_ab": "lan",
+                "ip": "192.168.2.169",
+                "app": [
+                    "cmdb.1.PlatSrv.1",
+                    "cmdb.2.PlatSrv.1",
+                    "cmdb.1.Proxy.1",
+                    "cmdb.4.World.1",
+                    "cmdb.6.Game.1",
+                    "cmdb.7.Game.1",
+                    "cmdb.8.Game.1",
+                    "cmdb.1.World.1",
+                    "cmdb.1.World.2",
+                    "cmdb.1.World.3",
+                    "cmdb.1.World.4",
+                    "cmdb.1.World.5",
+                    "cmdb.1.World.6",
+                    "cmdb.1.World.7"
+                ],
+                "region_ab": "F4",
+                "ssh_ip": "192.168.2.169",
+                "cabinet_name": "vm"
+            },
+            "192.168.2.22": {
+                "other_ip": [],
+                "app_meta": {
+                    "cmdb.1.Fserver.1": {
+                        "process": {
+                            "test_rsync": {
+                                "attribute": {
+                                    "test_rsync": ""
+                                },
+                                "config_file": [],
+                                "id": 152,
+                                "work_dir": ""
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 3220
+                    }
+                },
+                "plat_ab": "lan",
+                "ip": "192.168.2.22",
+                "app": [
+                    "cmdb.1.Fserver.1"
+                ],
+                "region_ab": "F4",
+                "ssh_ip": "192.168.2.22",
+                "cabinet_name": "vm"
+            },
+            "192.168.2.108": {
+                "other_ip": [],
+                "app_meta": {
+                    "cmdb.6.Game.2": {
+                        "process": {
+                            "game": {
+                                "attribute": {
+                                    "db_host": "127.0.0.1",
+                                    "server_name": "未命名",
+                                    "db_port": "3306"
+                                },
+                                "config_file": [
+                                    {
+                                        "path": "config/game.ini",
+                                        "id": 10
+                                    }
+                                ],
+                                "id": 21,
+                                "work_dir": ""
+                            }
+                        },
+                        "ver_info": {
+                            "ver_attribute": {
+                                "xxx": "smartwang,heqing,snakechen",
+                                "stage": "正式运营",
+                                "op": "smartwang"
+                            },
+                            "ab": "cmdb",
+                            "name": "CMDB(开发环境)",
+                            "id": 123
+                        },
+                        "id": 2891
+                    }
+                },
+                "plat_ab": "lan",
+                "ip": "192.168.2.108",
+                "app": [
+                    "cmdb.6.Game.2"
+                ],
+                "region_ab": "F4",
+                "ssh_ip": "192.168.2.108",
+                "cabinet_name": "vm"
+            }
+        }
+    },
+    "cmdb.4.source.1": {
+        "hosts": [
+            "192.168.2.28"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.4.source.1"
+        }
+    },
+    "cmdb.2.PlatSrv.1": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.2.PlatSrv.1"
+        }
+    },
+    "cmdb.1.Fserver.1": {
+        "hosts": [
+            "192.168.2.22"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.Fserver.1"
+        }
+    },
+    "cmdb.5.Config.1": {
+        "hosts": [
+            "192.168.2.28"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.5.Config.1"
+        }
+    },
+    "cmdb.1.Config.1": {
+        "hosts": [
+            "192.168.2.28"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.Config.1"
+        }
+    },
+    "cmdb.4.World.1": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.4.World.1"
+        }
+    },
+    "cmdb.1.World.1": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.World.1"
+        }
+    },
+    "cmdb.8.Game.1": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.8.Game.1"
+        }
+    },
+    "cmdb.1.World.3": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.World.3"
+        }
+    },
+    "cmdb.1.World.7": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.World.7"
+        }
+    },
+    "cmdb.1.World.6": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.World.6"
+        }
+    },
+    "cmdb.1.World.5": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.World.5"
+        }
+    },
+    "cmdb.7.Game.1": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.7.Game.1"
+        }
+    },
+    "cmdb.6.Game.1": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.6.Game.1"
+        }
+    },
+    "cmdb.1.World.2": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.World.2"
+        }
+    },
+    "cmdb.1.PlatSrv.1": {
+        "hosts": [
+            "192.168.2.169"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.1.PlatSrv.1"
+        }
+    },
+    "cmdb.6.Game.2": {
+        "hosts": [
+            "192.168.2.108"
+        ],
+        "vars": {
+            "ansible_expr": "cmdb.6.Game.2"
+        }
+    }
+}

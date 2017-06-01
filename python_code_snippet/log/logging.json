@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "brief": {
+      "class": "logging.Formatter",
+      "datefmt": "%Y-%m-%d %H:%M:%S",
+      "format": "%(asctime)s, %(levelname)s - %(name)s: %(message)s"
+    },
+    "single-line": {
+      "class": "logging.Formatter",
+      "datefmt": "%Y-%m-%d %H:%M:%S",
+      "format": "%(asctime)s, %(levelname)s - %(name)s %(pathname)s:%(funcName)s - (lineno)d: %(message)s"
+    },
+    "verbose": {
+      "class": "logging.Formatter",
+      "datefmt": "%Y-%m-%d %H:%M:%S",
+      "format": "%(asctime)s, %(levelname)s - [%(process)d] - %(threadName)s - %(name)s %(pathname)s:%(funcName)s - %(lineno)d: %(message)s"
+    },
+    "json": {
+      "class": "logging.Formatter",
+      "datefmt": "%Y-%m-%d %H:%M:%S",
+      "format": "{\n\t\"time\": %(asctime)s\n\t\"level\": %(levelname)s\n\t\"logger\": %(name)s\n\t\"message\": %(message)s\n}"
+    }
+  },
+
+  "handlers": {
+    "console.handler": {
+      "class": "logging.StreamHandler",
+      "level": "DEBUG",
+      "formatter": "brief",
+      "stream": "ext://sys.stdout"
+    },
+
+    "email.handler": {
+      "level": "CRITICAL",
+      "class": "logging.handlers.SMTPHandler",
+      "formatter": "single-line",
+      "mailhost": ["smtp.exmail.qq.com", 25],
+      "fromaddr": "report@camera360.com",
+      "toaddrs": ["chenlin@camera360.com"],
+      "credentials": ["report@camera360.com","9Pf5A&k$f2wX1"],
+      "subject": "Program run critical, Pls. check it."
+    },
+
+    "hotpot.file.handler.verbose": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "DEBUG",
+      "formatter": "verbose",
+      "filename": "/tmp/hotpot.file.handler.log",
+      "maxBytes": 20971520,
+      "backupCount": 20,
+      "encoding": "utf8"
+    },
+
+    "hotpot.file.handler.brief": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "INFO",
+      "formatter": "brief",
+      "filename": "/tmp/hotpot.file.handler.log",
+      "maxBytes": 20971520,
+      "backupCount": 20,
+      "encoding": "utf8"
+    },
+
+    "hotpot.file.handler.timed": {
+      "class": "logging.handlers.TimedRotatingFileHandler",
+      "level": "DEBUG",
+      "formatter": "verbose",
+      "filename": "/tmp/hotpot.file.handler.timed.log",
+      "when": "midnight",
+      "backupCount": 20,
+      "encoding": "utf8"
+    }
+  },
+
+  "root": {
+    "level": "DEBUG",
+    "handlers": ["console.handler"]
+  },
+
+  "loggers": {
+    "hotpot.app": {
+      "handlers": ["hotpot.file.handler.brief"],
+      "level": "DEBUG",
+      "propagate": true
+    },
+
+    "hotpot.app.verbose": {
+      "handlers": ["hotpot.file.handler.verbose"],
+      "level": "DEBUG",
+      "propagate": true
+    }
+  }
+}
