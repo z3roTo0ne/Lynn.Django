@@ -21,17 +21,15 @@ from django_app.views import *
 from django.contrib.auth.decorators import login_required
 from rest_framework import routers
 from api.views import *
-from tastypie.api import Api
-from api.resources import BookResource
 from django.conf import settings
 admin.autodiscover()
 
 # AdminSite attributes的这个功能非常好，可以直接替换掉很多模板
 # https://docs.djangoproject.com/en/1.9/ref/contrib/admin/#overriding-admin-templates
 # 会自动在你project的templates下面去寻找名字正确的template
-admin.site.site_header = u"Django1.9.5 后台管理"
+admin.site.site_header = u"Django1.10 后台管理"
 # admin.site.login_template = "login.html"
-admin.site.site_title = "Django后台管理"
+admin.site.site_title = "Django 后台管理"
 
 
 # 给rest framework的view注册url
@@ -44,12 +42,6 @@ router.register(prefix=r'api/books', viewset=BookViewSet)
 router.register(prefix=r'api/authors', viewset=AuthorViewSet)
 router.register(prefix=r'api/publisher', viewset=PublisherViewSet)
 
-# tastypie
-"""
-http://192.168.5.133:8000/t_api/v1/?format=json
-"""
-v1_api = Api(api_name='v1')
-v1_api.register(BookResource())
 
 
 urlpatterns = [
@@ -85,16 +77,7 @@ urlpatterns += [
     # url(r'^docs/', include('rest_framework_swagger.urls')),
 ]
 
-# tastypie的url
-urlpatterns += [
-    url(r'^t_api/', include(v1_api.urls), ),
-    url(r'^t_api/doc/', include('tastypie_swagger.urls', namespace='api_tastypie_swagger'),
-        kwargs={
-            'tastypie_api_module': v1_api,
-            'namespace': 'api_tastypie_swagger',
-            'version': "0.1"
-        }),
-]
+
 
 # django document admin
 urlpatterns += [

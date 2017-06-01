@@ -37,7 +37,7 @@ class TestView(TemplateView):
 
 def show_user(request):
     html = ""
-    print request.COOKIES
+    print(request.COOKIES)
     if "username" in request.COOKIES:
         username = request.COOKIES['username']
         if username == "admin":
@@ -85,9 +85,9 @@ def set_session(request, username="snake"):
 
 
 def del_session(request):
-    print request.session
+    print(request.session)
     if "snake" in request.session:
-        print u"会话ID是：{id}".format(id=request.session.session_key)
+        print(u"会话ID是：{id}".format(id=request.session.session_key))
         del request.session
         return HttpResponse(u"清除一个session")
     return HttpResponse(u"没有session被清除")

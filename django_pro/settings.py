@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 import sys
 import mimetypes
-reload(sys)
-sys.setdefaultencoding('utf8')
+
 
 # 处理svg图片在浏览器不显示的问题
 mimetypes.add_type("image/svg+xml", ".svg", True)
@@ -35,7 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SITE_NAME = u"React测试"
+SITE_NAME = "React测试"
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,8 +48,6 @@ INSTALLED_APPS = [
     'django_app.templatetags.customfilter',  # 自定义的filter
     'rest_framework',   # rest api 框架
     'rest_framework_swagger',
-    'tastypie',     # restful的tastypie 框架
-    'tastypie_swagger',
     'api',
     'simple_history',  # 用来记录历史操作
     'django.contrib.admindocs',  # django admin documentation generator
@@ -97,7 +94,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # 自定义的context_processors
                 'custom_processors.custom_context_processors.my_setting',
-                'django.core.context_processors.request',
+                # 'django.core.context_processors.request',
             ],
         },
     },

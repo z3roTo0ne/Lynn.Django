@@ -1,12 +1,9 @@
-Django
-django-debug-toolbar>=1.4
+Django==1.10
+django-debug-toolbar
 django-filter
 django-rest-swagger
-djangorestframework==3.3.3
-django-tastypie
-django-tastypie-swagger
+djangorestframework
 Markdown
-MySQL-python
 pip>=8.1.1
 PyYAML
 setuptools
@@ -19,3 +16,5 @@ django-cors-headers
 django-simple-history
 gevent
 tornado
+mysqlclient
+ipython
