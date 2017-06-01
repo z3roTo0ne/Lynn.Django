@@ -102,3 +102,6 @@ ENV/
 .idea/inspectionProfiles/
 .idea/vcs.xml
 .idea/workspace.xml
+.idea/deployment.xml
+.idea/webServers.xml
+.idea/*
