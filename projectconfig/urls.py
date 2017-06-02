@@ -80,7 +80,6 @@ urlpatterns += [
 ]
 
 
-
 # django document admin
 urlpatterns += [
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
